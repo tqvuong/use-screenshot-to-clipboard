@@ -1,9 +1,10 @@
+import React from 'react';
 import { useRef } from 'react';
-import useScreenshotToClipboard from 'use-screenshot-to-clipboard';
+import { useScreenshotToClipboard } from 'use-screenshot-to-clipboard';
 
 const App = () => {
   const ref = useRef(null);
-  const [makeCopyToClipboard, _] = useScreenshotToClipboard();
+  const [makeCopyToClipboard, _] = useScreenshotToClipboard({ quality: 1 });
   return (
     <div ref={ref}>
       <table>

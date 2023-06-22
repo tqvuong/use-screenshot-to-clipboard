@@ -1,40 +1,43 @@
 {
     "name": "use-screenshot-to-clipboard",
-    "version": "1.0.0",
+    "version": "1.0.6",
     "description": "Make clipboard image from React Element",
     "author": "tqvuong",
     "license": "MIT",
     "repository": "tqvuong/use-screenshot-to-clipboard",
-    "main": "dist/index.js",
-    "module": "dist/index.es.js",
-    "types": "dist/index.d.ts",
     "type": "module",
-    "jsnext:main": "dist/index.es.js",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/esm/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/cjs/index.js",
+            "import": "./dist/esm/index.js"
+        }
+    },
+    "keywords": [
+        "typescript",
+        "react",
+        "hooks"
+    ],
     "engines": {
-        "node": ">=8",
-        "npm": ">=5"
+        "node": ">=16"
     },
     "scripts": {
         "test": "cross-env CI=1 react-scripts test --env=jsdom",
         "test:watch": "react-scripts test --env=jsdom",
-        "build": "rollup --config rollup.config.js --configPlugin @rollup/plugin-typescript",
+        "build": "rimraf ./dist && yarn run build:cjs && yarn run build:esm",
+        "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir dist/cjs --target es5",
+        "build:esm": "tsc -p tsconfig.json --module esNext --outDir dist/esm --target es6",
         "start": "rollup --config rollup.config.js -w",
         "prepare": "yarn run build",
         "predeploy": "cd example && yarn install && yarn run build",
         "deploy": "gh-pages -d example/build"
     },
     "dependencies": {},
-    "peerDependencies": {
-        "react": "^16.9.0"
-    },
     "devDependencies": {
         "@babel/core": "^7.2.2",
         "@babel/runtime": "^7.3.1",
-        "@rollup/plugin-babel": "^6.0.3",
-        "@rollup/plugin-commonjs": "^25.0.2",
-        "@rollup/plugin-node-resolve": "^15.1.0",
-        "@rollup/plugin-typescript": "^11.1.1",
-        "@rollup/plugin-url": "^8.0.1",
         "@testing-library/react-hooks": "^8.0.1",
         "@types/jest": "^29.5.2",
         "@types/react": "^18.2.13",
@@ -42,8 +45,10 @@
         "gh-pages": "^5.0.0",
         "html2canvas": "^1.4.1",
         "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "react-scripts": "^5.0.1",
         "react-test-renderer": "^18.2.0",
+        "rimraf": "^5.0.1",
         "rollup": "^3.25.1",
         "rollup-plugin-peer-deps-external": "^2.2.0",
         "tslib": "^2.0.1",

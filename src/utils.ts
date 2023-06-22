@@ -1,14 +1,13 @@
 import html2canvas from 'html2canvas';
-import { useState } from 'react';
 
-const _copyBlobToClipboard = (blob: Blob): Promise<void> => {
+export const _copyBlobToClipboard = (blob: Blob): Promise<void> => {
   const items = { [blob.type]: blob } as unknown as Record<string, ClipboardItemData>;
 
   const clipboardItem = new ClipboardItem(items);
   return navigator.clipboard.write([clipboardItem]);
 };
 
-const _downloadImage = (blobImage: Blob, nameOfDownload = 'my-image.png') => {
+export const _downloadImage = (blobImage: Blob, nameOfDownload = 'image.png') => {
   const href = URL.createObjectURL(blobImage);
 
   const anchorElement = document.createElement('a');
@@ -22,7 +21,7 @@ const _downloadImage = (blobImage: Blob, nameOfDownload = 'my-image.png') => {
   window.URL.revokeObjectURL(href);
 };
 
-const _htmlToBlob = (node: HTMLElement, type: string, quality: number): Promise<Blob> => {
+export const _htmlToBlob = (node: HTMLElement, type: string, quality: number): Promise<Blob> => {
   if (!node) {
     throw new Error('You should provide correct html node.');
   }
@@ -63,22 +62,3 @@ const _htmlToBlob = (node: HTMLElement, type: string, quality: number): Promise<
     });
   });
 };
-
-export const useScreenshot = ({ type = 'image/png', quality }: { type?: string; quality: number }) => {
-  const [error, setError] = useState(null);
-  const takeScreenShot = (node: HTMLElement, nameOfDownload: string) =>
-    _htmlToBlob(node, type, quality)
-      .then(blob => _downloadImage(blob, nameOfDownload))
-      .catch(setError);
-  return [takeScreenShot, error];
-};
-
-export const useScreenshotToClipboard = ({ type = 'image/png', quality }: { type?: string; quality: number }) => {
-  const [error, setError] = useState(null);
-  const makeCopyToClipboard = (node: HTMLElement) =>
-    _htmlToBlob(node, type, quality).then(_copyBlobToClipboard).catch(setError);
-
-  return [makeCopyToClipboard, error];
-};
-
-export default useScreenshotToClipboard;
