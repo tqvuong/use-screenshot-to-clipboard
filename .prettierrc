@@ -1,0 +1,29 @@
+{
+  "printWidth": 120,
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "jsxSingleQuote": true,
+  "singleQuote": true,
+  "parser": "babel-ts",
+  "semi": true,
+  "overrides": [
+    {
+      "files": ["*.json", ".prettierrc", ".babelrc"],
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": ["*.scss"],
+      "options": {
+        "parser": "scss"
+      }
+    },
+    {
+      "files": ["*.less"],
+      "options": {
+        "parser": "less"
+      }
+    }
+  ]
+}

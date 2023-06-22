@@ -1,0 +1,72 @@
+module.exports = {
+    root: true,
+    env: {
+        browser: true,
+        node: true,
+    },
+    extends: [
+        'airbnb-typescript',
+        'plugin:react/jsx-runtime',
+        'plugin:import/recommended',
+        'plugin:react-hooks/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:import/typescript',
+    ],
+    plugins: ['prettier', 'react-hooks'],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaVersion: 'latest',
+        project: './tsconfig.eslint.json',
+    },
+    settings: {
+        'import/resolver': {
+            node: {
+                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            },
+        },
+    },
+    ignorePatterns: ['*.config.js'],
+    rules: {
+        'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        indent: ['error', 4],
+        '@typescript-eslint/indent': ['error', 4],
+        quotes: ['error', 'single'],
+        'arrow-parens': ['error', 'as-needed'],
+        'comma-dangle': ['off'],
+        'no-shadow': 'off',
+        '@typescript-eslint/comma-dangle': [
+            'error',
+            {
+                enums: 'always-multiline',
+                arrays: 'always-multiline',
+                objects: 'always-multiline',
+                imports: 'always-multiline',
+                exports: 'always-multiline',
+                functions: 'never',
+            },
+        ],
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
+        'no-shadow': 'off',
+        '@typescript-eslint/no-shadow': ['warn'],
+        '@typescript-eslint/no-shadow': ['error', { ignoreFunctionTypeParameterNameValueShadow: false }],
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/naming-convention': [
+            'error',
+            {
+                selector: 'variable',
+                format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+                leadingUnderscore: 'allow',
+            },
+        ],
+        'func-names': ['error', 'as-needed'],
+        'max-len': ['error', { code: 120 }],
+        'import/extensions': ['error', 'never', { png: 'always' }],
+        'import/no-unresolved': 0,
+        semi: 'error',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'error',
+    },
+};
