@@ -3,7 +3,6 @@
   "homepage": "https://tqvuong.github.io/use-screenshot-to-clipboard",
   "version": "0.0.0",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
