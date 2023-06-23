@@ -8,19 +8,27 @@
   "semi": true,
   "overrides": [
     {
-      "files": ["*.json", ".prettierrc", ".babelrc"],
+      "files": [
+        "*.json",
+        ".prettierrc",
+        ".babelrc"
+      ],
       "options": {
         "parser": "json"
       }
     },
     {
-      "files": ["*.scss"],
+      "files": [
+        "*.scss"
+      ],
       "options": {
         "parser": "scss"
       }
     },
     {
-      "files": ["*.less"],
+      "files": [
+        "*.less"
+      ],
       "options": {
         "parser": "less"
       }

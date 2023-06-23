@@ -1,57 +1,55 @@
 {
-    "name": "use-screenshot-to-clipboard",
-    "version": "1.0.6",
-    "description": "Make clipboard image from React Element",
-    "author": "tqvuong",
-    "license": "MIT",
-    "repository": "tqvuong/use-screenshot-to-clipboard",
-    "type": "module",
-    "main": "./dist/cjs/index.js",
-    "module": "./dist/esm/index.js",
-    "types": "./dist/esm/index.d.ts",
-    "exports": {
-        ".": {
-            "require": "./dist/cjs/index.js",
-            "import": "./dist/esm/index.js"
-        }
-    },
-    "keywords": [
-        "typescript",
-        "react",
-        "hooks"
-    ],
-    "engines": {
-        "node": ">=16"
-    },
-    "scripts": {
-        "test": "cross-env CI=1 react-scripts test --env=jsdom",
-        "test:watch": "react-scripts test --env=jsdom",
-        "build": "rimraf ./dist && yarn run build:cjs && yarn run build:esm",
-        "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir dist/cjs --target es5",
-        "build:esm": "tsc -p tsconfig.json --module esNext --outDir dist/esm --target es6",
-        "start": "rollup --config rollup.config.js -w",
-        "prepare": "yarn run build",
-        "predeploy": "cd example && yarn install && yarn run build",
-        "deploy": "gh-pages -d example/build"
-    },
-    "dependencies": {},
-    "devDependencies": {
-        "@babel/core": "^7.2.2",
-        "@babel/runtime": "^7.3.1",
-        "@testing-library/react-hooks": "^8.0.1",
-        "@types/jest": "^29.5.2",
-        "@types/react": "^18.2.13",
-        "cross-env": "^7.0.3",
-        "gh-pages": "^5.0.0",
-        "html2canvas": "^1.4.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-scripts": "^5.0.1",
-        "react-test-renderer": "^18.2.0",
-        "rimraf": "^5.0.1",
-        "rollup": "^3.25.1",
-        "rollup-plugin-peer-deps-external": "^2.2.0",
-        "tslib": "^2.0.1",
-        "typescript": "^5.1.3"
+  "name": "use-screenshot-to-clipboard",
+  "version": "1.0.7",
+  "description": "Make clipboard image from React Element",
+  "author": "tqvuong <tqvuong.dev@gmail.com>",
+  "license": "MIT",
+  "repository": "tqvuong/use-screenshot-to-clipboard",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
     }
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "hooks"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && yarn run build:cjs && yarn run build:esm",
+    "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir dist/cjs --target es5",
+    "build:esm": "tsc -p tsconfig.json --module esNext --outDir dist/esm --target es6",
+    "start": "rollup --config rollup.config.js -w",
+    "prepare": "yarn run build",
+    "predeploy": "cd example && yarn install && yarn run build",
+    "deploy": "gh-pages -d example/build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/runtime": "^7.3.1",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/jest": "^29.5.2",
+    "@types/react": "^18.2.13",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^5.0.0",
+    "html2canvas": "^1.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "react-test-renderer": "^18.2.0",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.25.1",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "tslib": "^2.0.1",
+    "typescript": "^5.1.3"
+  }
 }
