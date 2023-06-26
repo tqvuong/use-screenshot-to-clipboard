@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "license": "MIT",
   "dependencies": {
+    "@iconfu/svg-inject": "^1.2.3",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "^3.0.1",
     "use-screenshot-to-clipboard": "link:.."
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

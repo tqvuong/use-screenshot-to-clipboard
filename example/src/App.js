@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 import { useScreenshotToClipboard, useScreenshot } from 'use-screenshot-to-clipboard';
+import SVGInject from '@iconfu/svg-inject';
 
 const makeId = length => {
     let result = '';
@@ -39,6 +40,13 @@ const App = () => {
                         </tr>
                     </tbody>
                 </table>
+                <div>
+                    <img
+                        style={{ width: 120, height: 'auto' }}
+                        src='https://res.cloudinary.com/dbenw2hjn/image/upload/v1687789890/air_ticket/redux-saga_f5xokw.svg'
+                        onLoad={e => SVGInject(e.target)}
+                    />
+                </div>
             </div>
             <button className='glow-on-hover' type='button' onClick={() => makeCopyToClipboard(ref.current)}>
                 makeCopyToClipboard

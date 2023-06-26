@@ -1,6 +1,6 @@
 {
   "name": "use-screenshot-to-clipboard",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Make clipboard image from React Element",
   "author": "tqvuong <tqvuong.dev@gmail.com>",
   "license": "MIT",
@@ -15,11 +15,7 @@
       "import": "./dist/esm/index.js"
     }
   },
-  "keywords": [
-    "typescript",
-    "react",
-    "hooks"
-  ],
+  "keywords": ["typescript", "react", "hooks"],
   "engines": {
     "node": ">=16"
   },
