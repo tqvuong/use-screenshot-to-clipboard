@@ -1,6 +1,6 @@
 {
   "name": "use-screenshot-to-clipboard",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Make clipboard image from React Element",
   "author": "tqvuong <tqvuong.dev@gmail.com>",
   "license": "MIT",

@@ -14,11 +14,13 @@ export const _downloadImage = (blobImage, nameOfDownload = 'image.png') => {
     document.body.removeChild(anchorElement);
     window.URL.revokeObjectURL(href);
 };
-export const _htmlToBlob = (node, type, quality) => {
+export const _htmlToBlob = (node, type, quality, scale) => {
     if (!node) {
         throw new Error('You should provide correct html node.');
     }
-    return html2canvas(node).then(canvas => {
+    return html2canvas(node, {
+        scale,
+    }).then(canvas => {
         if (!canvas) {
             throw new Error('canvas is not valid');
         }

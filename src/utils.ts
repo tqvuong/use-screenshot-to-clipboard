@@ -21,12 +21,14 @@ export const _downloadImage = (blobImage: Blob, nameOfDownload = 'image.png') =>
     window.URL.revokeObjectURL(href);
 };
 
-export const _htmlToBlob = (node: HTMLElement, type: string, quality: number): Promise<Blob> => {
+export const _htmlToBlob = (node: HTMLElement, type: string, quality: number, scale: number): Promise<Blob> => {
     if (!node) {
         throw new Error('You should provide correct html node.');
     }
 
-    return html2canvas(node).then(canvas => {
+    return html2canvas(node, {
+        scale,
+    }).then(canvas => {
         if (!canvas) {
             throw new Error('canvas is not valid');
         }

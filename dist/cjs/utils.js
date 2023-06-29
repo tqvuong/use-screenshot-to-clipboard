@@ -24,11 +24,13 @@ var _downloadImage = function (blobImage, nameOfDownload) {
     window.URL.revokeObjectURL(href);
 };
 exports._downloadImage = _downloadImage;
-var _htmlToBlob = function (node, type, quality) {
+var _htmlToBlob = function (node, type, quality, scale) {
     if (!node) {
         throw new Error('You should provide correct html node.');
     }
-    return (0, html2canvas_1.default)(node).then(function (canvas) {
+    return (0, html2canvas_1.default)(node, {
+        scale: scale,
+    }).then(function (canvas) {
         if (!canvas) {
             throw new Error('canvas is not valid');
         }
